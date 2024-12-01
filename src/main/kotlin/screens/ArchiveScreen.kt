@@ -9,7 +9,7 @@ class ArchiveScreen(private val archive: Archive) : NumericMenuScreen("Заме�
     override fun configureMenuActions(menuBuilder: Menu.Companion.Builder) {
         menuBuilder
             .addAction("Создать заметку") { invokeNoteCreation() }
-            .addNamedItemsActions(archive.getNotes()) { Application.runNoteScreen(archive, it as Note) }
+            .addNamedItemsActions(archive.notes) { Application.runNoteScreen(archive, it as Note) }
     }
 
     override fun invokeBackOption() {
@@ -19,6 +19,6 @@ class ArchiveScreen(private val archive: Archive) : NumericMenuScreen("Заме�
     private fun invokeNoteCreation() {
         val noteName = TextEditorScreen("имя заметки").render()
         val noteContent = TextEditorScreen("содержание заметки").render()
-        archive.addNote(Note(noteName, noteContent))
+        archive.notes.add(Note(noteName, noteContent))
     }
 }

@@ -17,12 +17,6 @@ class MainScreen(private val archives: MutableList<Archive>) : NumericMenuScreen
 
     private fun invokeArchiveEditor() {
         val archiveName = TextEditorScreen("название архива").render()
-        createArchive(archiveName)
-    }
-
-    private fun createArchive(name: String): Archive {
-        val archive = Archive(name)
-        archives.add(archive)
-        return archive
+        archives.add(Archive(archiveName))
     }
 }
