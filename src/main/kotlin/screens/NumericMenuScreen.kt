@@ -27,8 +27,8 @@ abstract class NumericMenuScreen(private val header: String) : Screen<Unit> {
             val status = handleInput(menu, input)
             when (status) {
                 InputStatus.OK -> terminate = true
-                InputStatus.WRONG_FORMAT -> println("Необходимо ввести цифру")
-                InputStatus.NO_HANDLERS -> println("Такого элемента нет на экране")
+                InputStatus.WRONG_FORMAT -> println("Ошибка! Необходимо ввести цифру")
+                InputStatus.NO_HANDLERS -> println("Ошибка! Такого элемента нет на экране. Введите другое!")
             }
         }
     }

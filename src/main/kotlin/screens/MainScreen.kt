@@ -6,8 +6,9 @@ import data.Menu
 
 class MainScreen(private val archives: MutableList<Archive>) : NumericMenuScreen("Список архивов") {
     override fun configureMenuActions(menuBuilder: Menu.Companion.Builder) {
-        menuBuilder.addAction("Создать архив") { invokeArchiveEditor() }
-        archives.forEach { menuBuilder.addAction(it.name) { Application.runArchiveScreen(it) } }
+        menuBuilder
+            .addAction("Создать архив") { invokeArchiveEditor() }
+            .addNamedItemsActions(archives) { Application.runArchiveScreen(it as Archive) }
     }
 
     override fun invokeBackOption() {
@@ -23,9 +24,5 @@ class MainScreen(private val archives: MutableList<Archive>) : NumericMenuScreen
         val archive = Archive(name)
         archives.add(archive)
         return archive
-    }
-
-    private fun getArchive(name: String): Archive {
-        return archives.find { name == it.name } ?: createArchive(name)
     }
 }

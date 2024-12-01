@@ -1,6 +1,6 @@
 package data
 
-data class Archive(val name: String) {
+data class Archive(override val name: String) : NamedItem(name) {
     private val notes: MutableList<Note> = mutableListOf()
 
     fun addNote(note: Note) {

@@ -11,7 +11,7 @@ class TextEditorScreen(val description: String) : Screen<String> {
             if (input.isNotEmpty()) {
                 return input
             } else {
-                println("${description.replaceFirstChar { it.uppercaseChar() }} не может быть пустой строкой")
+                println("Ошибка! ${description.replaceFirstChar { it.uppercaseChar() }} не может быть пустой строкой.")
             }
         }
     }

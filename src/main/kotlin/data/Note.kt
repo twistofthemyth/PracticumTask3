@@ -1,3 +1,3 @@
 package data
 
-data class Note(var name: String, var content: String)
+data class Note(override val name: String, var content: String) : NamedItem(name)
